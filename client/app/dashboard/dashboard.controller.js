@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('app.dashboard')
+    .module('app.dashboard') //the controller is under the app.dashboard module
     .controller('DashboardCtrl', DashboardCtrl);
   
   function DashboardCtrl (NorrisFactory, $state) {
