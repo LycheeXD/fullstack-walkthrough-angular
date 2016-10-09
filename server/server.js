@@ -9,7 +9,9 @@ const express = require('express'),
 app.set('port', (process.env.PORT || 3000));
 
 app.use('/', express.static(path.join(__dirname, '../client')));
-app.use(bodyParser.json());
+
+//setting the size of json sent by the server
+app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.use(logger('dev'))
