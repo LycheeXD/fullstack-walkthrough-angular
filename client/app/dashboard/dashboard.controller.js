@@ -10,14 +10,18 @@
 
     vm.submit = submit;
     vm.jokes = [];
+
+    //set loading text to false so nothign shows
     vm.isLoading = false;
 
 
     function submit (num) {
+      //show loading text
       vm.isLoading = true;
-      var numJokes = num;
-      NorrisFactory.getJokes(numJokes)
+
+      NorrisFactory.getJokes(num)
       .then(function (data) {
+
         console.log("this is the data", data)
         if (data.data.type === "success") {
           vm.jokes = data.data.value
@@ -26,7 +30,7 @@
               return j;
             });
 
-        console.log("these are the jokes", vm.jokes)
+        //remove loading spinner
         vm.isLoading = false;
         }
       })
